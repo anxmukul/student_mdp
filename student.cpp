@@ -1,5 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
+class Student
+{
+    //Access specifier
+    public:
+    //Data members
+    string name, standard, roll_no, section;
+    //Member functions
+    
+
+};
 
 int main()
 {
@@ -14,7 +24,7 @@ int main()
             cout<<"Enter name of the student\n";
         }
         else if(n==2){
-            cout<<"YOu can get list of all student here\n";
+            cout<<"You can get list of all student here\n";
         }
         else if(n==3){
             cout<<"Enter name of the student.\n";
