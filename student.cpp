@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 #include <string.h>
+#include<cstdio>
 using namespace std;
+void print_details();
 class Student
 {
     //Access specifier
@@ -18,10 +20,13 @@ class Student
         roll_no = Roll;
         section = Section;
     }
-    void print_details()
+    void show_details()
     {
         cout<<"Name:"<<name<<endl<<"standard:"<<standard<<endl<<"roll no:"<<roll_no<<endl<<"section:"<<section<<endl;
 
+    }
+    bool search_name(string input_name){
+        name == input_name;
     }
 
 };
@@ -71,16 +76,22 @@ int main()
         else if(n==2){
             cout<<"Student List:\n";
             //accesing member function
-                for(int j=0; j<i; j++){
-                    cout<<"Name: "<<s[j].name<<endl;
-                    cout<<"Class: "<<s[j].standard<<endl;
-                    cout<<"Roll no: "<<s[j].roll<<endl;
-                    cout<<"Section: "<<s[j].section<<endl;
+            for(int j=0; j<i; j++){
+                s[j].print_details();
+
             }
             cout<<endl;
         }
         else if(n==3){
             cout<<"Enter name of the student.\n";
+            string input_name;
+            cin>>input_name;
+            for(int j=0; j<i; j++){
+                if(s[j].name == input_name){
+                    s[j].show_details();
+                }
+            }
+
         }
         else if(n==4){
             cout<<"Enter the roll no of the student\n";
