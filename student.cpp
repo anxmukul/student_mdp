@@ -69,11 +69,15 @@ int main()
                 cout<<i<<endl;
         }
         else if(n==2){
-            //cout<<"You can get list of all student here\n";
+            cout<<"Student List:\n";
             //accesing member function
-                for(int j=0; j<40; j++){
-                //s[j].print_details();
+                for(int j=0; j<i; j++){
+                    cout<<"Name: "<<s[j].name<<endl;
+                    cout<<"Class: "<<s[j].standard<<endl;
+                    cout<<"Roll no: "<<s[j].roll<<endl;
+                    cout<<"Section: "<<s[j].section<<endl;
             }
+            cout<<endl;
         }
         else if(n==3){
             cout<<"Enter name of the student.\n";
