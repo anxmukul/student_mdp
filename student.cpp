@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <string.h>
 using namespace std;
 class Student
 {
@@ -25,12 +26,19 @@ class Student
 
 };
 
+struct  student_data
+{
+    string name;
+    int standard;
+    int roll;
+    char section;
+}s[40];
+
 int main()
 {
     cout<<"This programme is a menu driven program in which you will enter any number between 1-5 for following operation\n";
     cout<<"1. For adding a new student.\n2. For listing all the students.\n3. For searching student by name.\n4. For seaching student by roll.\n5. To stop the programme.\n";
     Student student1;    //declaring an object
-    
     /*cout<<"Enter name of the student\n";
     Student student1;    //declaring an object
     student1.name = "Mukul";    //Accesing data member
@@ -53,12 +61,19 @@ int main()
             cin>>student1.section;
 
             student1.initialize(student1.name, student1.standard, student1.roll_no, student1.section);
+            for(int i=0; i<40; i++){
+                s[i].name = student1.name;
+                s[i].standard = student1.standard;
+                s[i].roll = student1.roll_no;
+                s[i].section = student1.section;
+            }
         }
         else if(n==2){
             //cout<<"You can get list of all student here\n";
             //accesing member function
-            student1.print_details();
-
+                for(int j=0; j<40; j++){
+                s[j].print_details();
+            }
         }
         else if(n==3){
             cout<<"Enter name of the student.\n";
