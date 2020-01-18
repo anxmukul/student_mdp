@@ -1,8 +1,14 @@
 #include <bits/stdc++.h>
 #include <string.h>
-#include<cstdio>
 using namespace std;
-void print_details();
+struct  student_data
+{
+    string name;
+    int standard;
+    int roll;
+    char section;
+}s[40];
+
 class Student
 {
     //Access specifier
@@ -20,10 +26,10 @@ class Student
         roll_no = Roll;
         section = Section;
     }
-    void show_details()
+    void show_details(int k)
     {
-        cout<<"Name:"<<name<<endl<<"standard:"<<standard<<endl<<"roll no:"<<roll_no<<endl<<"section:"<<section<<endl;
-
+        cout<<"Name:"<<s[k].name<<endl<<"standard:"<<s[k].standard<<endl<<"roll no:"<<s[k].roll<<endl<<"section:"<<s[k].section<<endl;
+        cout<<endl;
     }
     bool search_name(string input_name){
         name == input_name;
@@ -31,30 +37,25 @@ class Student
 
 };
 
-struct  student_data
-{
-    string name;
-    int standard;
-    int roll;
-    char section;
-}s[40];
-
 int main()
 {
     cout<<"This programme is a menu driven program in which you will enter any number between 1-5 for following operation\n";
     cout<<"1. For adding a new student.\n2. For listing all the students.\n3. For searching student by name.\n4. For seaching student by roll.\n5. To stop the programme.\n";
     Student student1;    //declaring an object
+
     /*cout<<"Enter name of the student\n";
     Student student1;    //declaring an object
     student1.name = "Mukul";    //Accesing data member
     student1.standard = 10;
     student1.roll_no = 18;
     student1.section = 'C';*/
+    
     int i = 0;
     while(1>0){
         cout<<"Enter any number\n";
         int n;
         cin>>n;
+
         if (n==1){
             cout<<"Enter name of the student\n";
             cin>>student1.name;              //Accesing data member
@@ -71,16 +72,15 @@ int main()
                 s[i].roll = student1.roll_no;
                 s[i].section = student1.section;
                 i++;
-                cout<<i<<endl;
         }
+
         else if(n==2){
             cout<<"Student List:\n";
             //accesing member function
             for(int j=0; j<i; j++){
-                s[j].print_details();
-
+                student1.show_details(j);
+                cout<<endl;
             }
-            cout<<endl;
         }
         else if(n==3){
             cout<<"Enter name of the student.\n";
@@ -88,17 +88,27 @@ int main()
             cin>>input_name;
             for(int j=0; j<i; j++){
                 if(s[j].name == input_name){
-                    s[j].show_details();
+                    student1.show_details(j);
                 }
             }
 
         }
+
         else if(n==4){
             cout<<"Enter the roll no of the student\n";
+            int input_roll;
+            cin>>input_roll;
+            for(int j=0; j<i; j++){
+                if(s[j].roll == input_roll){
+                    student1.show_details(j);
+                }
+            }
         }
+
         else if(n==5){
             break;
         }
+
     }
 
 
