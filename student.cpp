@@ -45,7 +45,7 @@ int main()
     student1.standard = 10;
     student1.roll_no = 18;
     student1.section = 'C';*/
-
+    int i = 0;
     while(1>0){
         cout<<"Enter any number\n";
         int n;
@@ -61,18 +61,18 @@ int main()
             cin>>student1.section;
 
             student1.initialize(student1.name, student1.standard, student1.roll_no, student1.section);
-            for(int i=0; i<40; i++){
                 s[i].name = student1.name;
                 s[i].standard = student1.standard;
                 s[i].roll = student1.roll_no;
                 s[i].section = student1.section;
-            }
+                i++;
+                cout<<i<<endl;
         }
         else if(n==2){
             //cout<<"You can get list of all student here\n";
             //accesing member function
                 for(int j=0; j<40; j++){
-                s[j].print_details();
+                //s[j].print_details();
             }
         }
         else if(n==3){
