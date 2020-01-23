@@ -20,8 +20,7 @@ class Student
     }
     void show_details()
     {
-        cout<<"Name:"<<name<<endl<<"standard:"<<standard<<endl<<"roll no:"<<roll_no<<endl<<"section:"<<section<<endl;
-        cout<<endl;
+        cout<<"Name: "<<name<<endl<<"standard: "<<standard<<endl<<"roll no: "<<roll_no<<endl<<"section: "<<section<<endl;
     }
     bool search_name(string input_name){
         if(name == input_name){
@@ -46,18 +45,18 @@ int main()
 {
     cout<<"This programme is a menu driven program in which you will enter any number between 1-5 for following operation\n";
     cout<<"1. For adding a new student.\n2. For listing all the students.\n3. For searching student by name.\n4. For seaching student by roll.\n5. To stop the programme.\n";
-    //Student student1;    //declaring an object
+    
     string p;
     int r;
     char s;
     int c;
-    //Student student_array[50];
-
+    
+    //Declearing Vector for storing data of more then one object work same as array
     vector<Student> student_array;
     
-    int i = 0;
-    while(1>0){
-        cout<<"Enter any number\n";
+    while(1>0)
+    {
+        cout<<"Enter any number:\n";
         int n;
         cin>>n;
 
@@ -70,17 +69,18 @@ int main()
             cin>>r;
             cout<<"Enter section of the student\n";
             cin>>s;
-            Student new_student(p, c, r, s);
-            student_array.push_back(new_student);
-            //student1.(student1.name, student1.standard, student1.roll_no, student1.section);
+            Student new_student(p, c, r, s);    //Creating object
+            student_array.push_back(new_student);            
                 
         }
 
         else if(n==2){
             cout<<"Student List:\n";
-            int length = student_array.size();    
+            int length = student_array.size(); 
+            cout<<endl;   
             for(int k=0; k<length; k++){
                 student_array[k].show_details();
+                cout<<endl;
             }
         }
         
@@ -92,6 +92,7 @@ int main()
             for(int k=0; k<length; k++){
                 if(student_array[k].search_name(input_name)){
                     student_array[k].show_details();
+                    cout<<endl;
                 }
             }
         }
@@ -100,10 +101,12 @@ int main()
             int  input_roll;
             cout<<"Enter roll no of the student\n";
             cin>>input_roll;
+            cout<<endl;
             int length = student_array.size();
             for(int k=0; k<length; k++){
                 if(student_array[k].search_roll(input_roll)){
                     student_array[k].show_details();
+                    cout<<endl;
                 }
             }
         }
