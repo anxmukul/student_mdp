@@ -50,15 +50,12 @@ int main()
     cout<<"1. For adding a new student.\n2. For listing all the students.\n3. For searching student by name.\n4. For seaching student by roll.\n5. To stop the programme.\n";
     
     string p;
+    int c;
     int r;
     char s;
-    int c;
+     
     
-    ofstream objw;   // creating object for file
-    objw.open("student_list.txt", std::ios_base::app);   // opening a file student_list.txt.
-    //Declearing Vector for storing data of more then one object work same as array
-    vector<Student> student_array;
-    
+     
     while(1>0)
     {
         cout<<"Enter any number:\n";
@@ -66,6 +63,8 @@ int main()
         cin>>n;
 
         if (n==1){
+            ofstream objw;                          // creating object for file
+            objw.open("student_list.txt", std::ios_base::app);   // opening a file student_list.txt.
             cout<<"Enter name of the student\n";
             cin.ignore();
             getline(cin, p, '\n');             //Accesing data member
@@ -79,19 +78,26 @@ int main()
             cout<<"Enter section of the student\n";
             cin>>s;
             objw<<s<<endl;
-            Student new_student(p, c, r, s);    //Creating object
-            student_array.push_back(new_student);            
-
+            objw.close();
+                
         }
+        
 
         else if(n==2){
-            cout<<"Student List:\n";
-            int length = student_array.size(); 
-            cout<<endl;   
-            for(int k=0; k<length; k++){
-                student_array[k].show_details();
-                cout<<endl;
+            cout<<"Student List:\n"; 
+            cout<<endl;
+            ifstream objr;
+            objr.open("student_list.txt");
+            while(!objr.eof()){
+                objr>>p;
+                objr>>c;
+                objr>>r;
+                objr>>s;
+                Student new_student(p,c,r,s);
+                new_student.show_details();
             }
+            objr.close();
+
         }
         
         else if(n==3){
@@ -99,13 +105,10 @@ int main()
             cout<<"Enter name of the student"<<endl;
             cin.ignore();
             getline(cin, input_name, '\n');
-            int length = student_array.size();
-            for(int k=0; k<length; k++){
-                if(student_array[k].search_name(input_name)){
-                    student_array[k].show_details();
-                    cout<<endl;
-                }
-            }
+            //ifstream objr;
+            //objr.open("student_list.txt");
+
+           
         }
 
         else if(n==4){
@@ -113,21 +116,13 @@ int main()
             cout<<"Enter roll no of the student\n";
             cin>>input_roll;
             cout<<endl;
-            int length = student_array.size();
-            for(int k=0; k<length; k++){
-                if(student_array[k].search_roll(input_roll)){
-                    student_array[k].show_details();
-                    cout<<endl;
-                }
-            }
+           
         }
 
         else if(n==5){
             break;
         }
-    
     }
-    objw.close();
 
 return 0;
 }

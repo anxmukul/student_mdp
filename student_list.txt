@@ -1,11 +1,3 @@
-Rupesh Singh
-12
-23
-A
-Abhi s
-12
-13
-C
 Mukul Kumar
 13
 12
@@ -18,3 +10,55 @@ Priyanshu pandey
 12
 12
 A
+Mukul Kumar
+12
+13
+A
+Mukul
+12
+13
+A
+Riresh Kumar
+12
+13
+C
+Mukul Kumar
+12
+13
+C
+Yuvi chahal
+10
+14
+C
+Mukul Kumar
+12
+32
+S
+ASDF fds
+13
+45
+E
+Arjun singh
+9
+56
+A
+Manoj sharma
+6
+24
+A
+Avinash singh
+8
+16
+D
+Mukesh Sharma
+12
+13
+A
+Ravi shastri
+13
+32
+Q
+Munna sharma
+12
+11
+C
