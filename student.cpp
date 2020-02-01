@@ -61,14 +61,15 @@ int main()
     
     while(1>0)
     {
+        objw.open("student_list.txt");   // opening a file student_list.txt.
         cout<<"Enter any number:\n";
         int n;
         cin>>n;
 
         if (n==1){
-            objw.open("student_list.txt");   // opening a file student_list.txt.
             cout<<"Enter name of the student\n";
-            cin>>p;              //Accesing data member
+            cin.ignore();
+            getline(cin, p, '\n');             //Accesing data member
             objw<<p<<endl;
             cout<<"Enter class of the student\n";
             cin>>c;
@@ -82,7 +83,6 @@ int main()
             Student new_student(p, c, r, s);    //Creating object
             student_array.push_back(new_student);            
 
-            objw.close();
         }
 
         else if(n==2){
@@ -98,7 +98,8 @@ int main()
         else if(n==3){
             string input_name;
             cout<<"Enter name of the student"<<endl;
-            cin>>input_name;
+            cin.ignore();
+            getline(cin, input_name, '\n');
             int length = student_array.size();
             for(int k=0; k<length; k++){
                 if(student_array[k].search_name(input_name)){
@@ -125,7 +126,8 @@ int main()
         else if(n==5){
             break;
         }
-
+    
+        objw.close();
     }
 
 return 0;
