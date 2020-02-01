@@ -1,12 +1,4 @@
-Rahul
-3
-12
-A
-Sameer
-1
-14
-C
-Aashsh
-8
-34
+Tuhin
+10
+31
 C

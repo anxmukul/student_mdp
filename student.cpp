@@ -20,8 +20,19 @@ class Student
         section = Section;
     }
     void show_details()
-    {
-        cout<<"Name: "<<name<<endl<<"standard: "<<standard<<endl<<"roll no: "<<roll_no<<endl<<"section: "<<section<<endl;
+    {   
+        string p;
+        int r;
+        char s;
+        int c;
+        ifstream objr;
+        objr.open("student_list.txt");
+        objr>>p;
+        objr>>c;
+        objr>>r;
+        objr>>s; 
+        cout<<"Name: "<<p<<endl<<"standard: "<<c<<endl<<"roll no: "<<r<<endl<<"section: "<<s<<endl;
+        objr.close();
     }
     bool search_name(string input_name){
         if(name == input_name){
@@ -52,8 +63,8 @@ int main()
     char s;
     int c;
     
-    ofstream obj;   // creating object for file
-    obj.open("student_list.txt");
+    ofstream objw;   // creating object for file
+    
     //Declearing Vector for storing data of more then one object work same as array
     vector<Student> student_array;
     
@@ -64,21 +75,23 @@ int main()
         cin>>n;
 
         if (n==1){
+            objw.open("student_list.txt");   // opening a file student_list.txt.
             cout<<"Enter name of the student\n";
             cin>>p;              //Accesing data member
-            obj<<p<<"\n";
+            objw<<p<<endl;
             cout<<"Enter class of the student\n";
             cin>>c;
-            obj<<c<<endl;
+            objw<<c<<endl;
             cout<<"Enter roll no of student\n";
             cin>>r;
-            obj<<r<<endl;
+            objw<<r<<endl;
             cout<<"Enter section of the student\n";
             cin>>s;
-            obj<<s<<endl;
+            objw<<s<<endl;
             Student new_student(p, c, r, s);    //Creating object
             student_array.push_back(new_student);            
 
+            objw.close();
         }
 
         else if(n==2){
@@ -123,7 +136,6 @@ int main()
         }
 
     }
-    obj.close();
 
 return 0;
 }
