@@ -55,13 +55,12 @@ int main()
     int c;
     
     ofstream objw;   // creating object for file
-    
+    objw.open("student_list.txt", std::ios_base::app);   // opening a file student_list.txt.
     //Declearing Vector for storing data of more then one object work same as array
     vector<Student> student_array;
     
     while(1>0)
     {
-        objw.open("student_list.txt");   // opening a file student_list.txt.
         cout<<"Enter any number:\n";
         int n;
         cin>>n;
@@ -127,8 +126,8 @@ int main()
             break;
         }
     
-        objw.close();
     }
+    objw.close();
 
 return 0;
 }
