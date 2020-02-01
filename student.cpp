@@ -21,18 +21,9 @@ class Student
     }
     void show_details()
     {   
-        string p;
-        int r;
-        char s;
-        int c;
-        ifstream objr;
-        objr.open("student_list.txt");
-        objr>>p;
-        objr>>c;
-        objr>>r;
-        objr>>s; 
-        cout<<"Name: "<<p<<endl<<"standard: "<<c<<endl<<"roll no: "<<r<<endl<<"section: "<<s<<endl;
-        objr.close();
+        //ifstream objr;
+        //objr.open("student_list.txt");
+        cout<<"Name: "<<name<<endl<<"standard: "<<standard<<endl<<"roll no: "<<roll_no<<endl<<"section: "<<section<<endl;
     }
     bool search_name(string input_name){
         if(name == input_name){
