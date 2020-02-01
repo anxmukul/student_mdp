@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <fstream>
 using namespace std;
 
 class Student
@@ -51,6 +52,8 @@ int main()
     char s;
     int c;
     
+    ofstream obj;   // creating object for file
+    obj.open("student_list.txt");
     //Declearing Vector for storing data of more then one object work same as array
     vector<Student> student_array;
     
@@ -63,15 +66,19 @@ int main()
         if (n==1){
             cout<<"Enter name of the student\n";
             cin>>p;              //Accesing data member
+            obj<<p<<"\n";
             cout<<"Enter class of the student\n";
             cin>>c;
+            obj<<c<<endl;
             cout<<"Enter roll no of student\n";
             cin>>r;
+            obj<<r<<endl;
             cout<<"Enter section of the student\n";
             cin>>s;
+            obj<<s<<endl;
             Student new_student(p, c, r, s);    //Creating object
             student_array.push_back(new_student);            
-                
+
         }
 
         else if(n==2){
@@ -116,6 +123,7 @@ int main()
         }
 
     }
+    obj.close();
 
 return 0;
 }
