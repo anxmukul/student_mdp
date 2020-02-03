@@ -26,7 +26,6 @@ class Student
         
     }
     bool search_name(string input_name){
-
         if(name == input_name) { 
            return true;
         }
@@ -127,6 +126,19 @@ int main()
             cout<<"Enter roll no of the student\n";
             cin>>input_roll;
             cout<<endl;
+             ifstream objr;
+            objr.open("student_list.txt");
+            while(!objr.eof()){
+                objr>>p;
+                objr>>c;
+                objr>>r;
+                objr>>s;
+                Student new_student(p,c,r,s);
+                if(new_student.search_roll(input_roll)){
+                    new_student.show_details();
+                }
+            }
+            objr.close();
            
         }
 
