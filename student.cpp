@@ -26,8 +26,9 @@ class Student
         
     }
     bool search_name(string input_name){
-        if(name == input_name){
-            return true;
+
+        if(name == input_name) { 
+           return true;
         }
         else{
             return false;
@@ -68,16 +69,16 @@ int main()
             cout<<"Enter name of the student\n";
             cin.ignore();
             getline(cin, p, '\n');             //Accesing data member
-            objw<<p;
+            objw<<p<<endl;
             cout<<"Enter class of the student\n";
             cin>>c;
-            objw<<c;
+            objw<<c<<endl;
             cout<<"Enter roll no of student\n";
             cin>>r;
-            objw<<r;
+            objw<<r<<endl;
             cout<<"Enter section of the student\n";
             cin>>s;
-            objw<<s;
+            objw<<s<<endl;
             objw.close();
                 
         }
@@ -105,10 +106,20 @@ int main()
             cout<<"Enter name of the student"<<endl;
             cin.ignore();
             getline(cin, input_name, '\n');
-            //ifstream objr;
-            //objr.open("student_list.txt");
-
-           
+            ifstream objr;
+            objr.open("student_list.txt");
+            while(!objr.eof()){
+                objr>>p;
+                objr>>c;
+                objr>>r;
+                objr>>s;
+                Student new_student(p,c,r,s);
+                if(new_student.search_name(input_name)){
+                    new_student.show_details();
+                }
+            }
+            objr.close();
+   
         }
 
         else if(n==4){
