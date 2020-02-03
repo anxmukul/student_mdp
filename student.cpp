@@ -21,9 +21,9 @@ class Student
     }
     void show_details()
     {   
-        //ifstream objr;
-        //objr.open("student_list.txt");
+        
         cout<<"Name: "<<name<<endl<<"standard: "<<standard<<endl<<"roll no: "<<roll_no<<endl<<"section: "<<section<<endl;
+        
     }
     bool search_name(string input_name){
         if(name == input_name){
@@ -68,16 +68,16 @@ int main()
             cout<<"Enter name of the student\n";
             cin.ignore();
             getline(cin, p, '\n');             //Accesing data member
-            objw<<p<<endl;
+            objw<<p;
             cout<<"Enter class of the student\n";
             cin>>c;
-            objw<<c<<endl;
+            objw<<c;
             cout<<"Enter roll no of student\n";
             cin>>r;
-            objw<<r<<endl;
+            objw<<r;
             cout<<"Enter section of the student\n";
             cin>>s;
-            objw<<s<<endl;
+            objw<<s;
             objw.close();
                 
         }
