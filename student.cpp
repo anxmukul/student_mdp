@@ -41,13 +41,19 @@ class Student
             return false;
         }
     }
+    void delete_details(string input_name){
+        if(name == input_name) { 
+           name.replace(name.find(input_name),input_name.length(),"");
+        }
+       
+    }
 
 };
 
 int main()
 {
     cout<<"This programme is a menu driven program in which you will enter any number between 1-5 for following operation\n";
-    cout<<"1. For adding a new student.\n2. For listing all the students.\n3. For searching student by name.\n4. For seaching student by roll.\n5. To stop the programme.\n";
+    cout<<"1. For adding a new student.\n2. For listing all the students.\n3. For searching student by name.\n4. For seaching student by roll.\n5. To delete information of a student.\n6. To stop the program\n";
     
     string p;
     int c;
@@ -143,6 +149,46 @@ int main()
         }
 
         else if(n==5){
+            string input_name;
+            cout<<"Enter name of the student to delete"<<endl;
+            cin.ignore();
+            getline(cin, input_name, '\n');
+            //int line = 0;
+            ifstream objr;
+            objr.open("student_list.txt");
+            while(!objr.eof()){
+                //line++;
+                objr>>p;
+                objr>>c;
+                objr>>r;
+                objr>>s;
+                Student new_student(p,c,r,s);
+                if(new_student.search_name(input_name)){
+                    new_student.show_details();
+                }
+            }
+            cout<<"if the shown details is right then Press Y to delete and N to search again\n";
+            char con;   // Taking input for confirmation.
+            cin>>con;
+            if(con == 'y'){
+               //cout<<"Line "<<line<<" will be deleted.\n";
+               while(!objr.eof()){
+                    //line++;
+                    objr>>p;
+                    objr>>c;
+                    objr>>r;
+                    objr>>s;
+                    Student new_student(p,c,r,s);
+                    if(new_student.search_name(input_name)){
+                        new_student.delete_details(input_name);
+                    }
+                }
+            }
+            
+            objr.close();
+        }
+
+        else if(n==6){
             break;
         }
     }
