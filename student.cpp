@@ -152,11 +152,9 @@ int main()
             cout<<"Enter name of the student to delete"<<endl;
             cin.ignore();
             getline(cin, input_name, '\n');
-            //int line = 0;
             ifstream objr;
             objr.open("student_list.txt");
             while(!objr.eof()){
-                //line++;
                 objr>>p;
                 objr>>c;
                 objr>>r;
@@ -170,9 +168,7 @@ int main()
             char con;   // Taking input for confirmation.
             cin>>con;
             if(con == 'Y'){
-               //cout<<"Line "<<line<<" will be deleted.\n";
                while(!objr.eof()){
-                    //line++;
                     objr>>p;
                     objr>>c;
                     objr>>r;
