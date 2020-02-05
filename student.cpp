@@ -88,7 +88,6 @@ int main()
                 
         }
         
-
         else if(n==2){
             cout<<"Student List:\n"; 
             cout<<endl;
@@ -167,10 +166,10 @@ int main()
                     new_student.show_details();
                 }
             }
-            cout<<"if the shown details is right then Press Y to delete and N to search again\n";
+            cout<<"if the shown details is right then Press Y to delete and N to search again:";
             char con;   // Taking input for confirmation.
             cin>>con;
-            if(con == 'y'){
+            if(con == 'Y'){
                //cout<<"Line "<<line<<" will be deleted.\n";
                while(!objr.eof()){
                     //line++;
@@ -183,6 +182,9 @@ int main()
                         new_student.delete_details(input_name);
                     }
                 }
+            }
+            else{
+                break;
             }
             
             objr.close();
